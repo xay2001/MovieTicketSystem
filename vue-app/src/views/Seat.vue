@@ -234,7 +234,7 @@ export default {
               });
             }
           })
-          self.location="Home.vue";
+          this.$router.push("/me/order");
         }).catch(() => {
           CreateOrder(this.cart).then(res => {
             if (res.success) {
