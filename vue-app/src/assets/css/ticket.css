@@ -9,7 +9,7 @@
 }
 
 .card {
-  background: linear-gradient(to bottom, #e84c3d 0%, #e84c3d 26%, #ecedef 26%, #ecedef 100%);
+  background: linear-gradient(to bottom, #F56C6C 0%, #F56C6C 26%, #ecedef 26%, #ecedef 100%);
   height: 180px;
   float: left;
   position: relative;
@@ -110,7 +110,7 @@ h1 span {
 .eye:before {
   width: 1em;
   height: 1em;
-  background: #e84c3d;
+  background: #F56C6C;
   z-index: 2;
   left: 8px;
   top: 4px;
@@ -131,7 +131,7 @@ h1 span {
 }
 
 .number h3 {
-  color: #e84c3d;
+  color: #F56C6C;
   margin: .9em 0 0 0;
   font-size: 2.5em;
 }
