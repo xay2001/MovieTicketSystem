@@ -69,6 +69,10 @@ const routes = [
                 component: () => import("@/views/Api")
             },
             {
+                path: '/activity',
+                component: () => import("@/views/activity/Activity")
+            },
+            {
                 path: '/setting',
                 component: () => import("@/views/Setting")
             },
