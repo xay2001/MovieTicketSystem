@@ -12,6 +12,10 @@ spring:
       use-key-prefix: true
       #redis过期时间
       time-to-live: 60s
+  mail:
+    username: 18610335557@163.com
+    password: UBCSGVLSMCUGLRWI
+    host: smtp.163.com
 mybatis-plus:
   global-config:
     db-config:

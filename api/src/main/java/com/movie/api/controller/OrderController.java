@@ -23,6 +23,7 @@ public class OrderController {
     @ApiOperation(value = "创建订单")
     public void save(@RequestBody Cart cart) throws Exception {
         orderService.create(cart);
+        System.out.println(cart.toString());
     }
 
     @GetMapping("")
