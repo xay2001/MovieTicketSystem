@@ -36,7 +36,7 @@
         </el-button>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>
-            <el-link :underline="false" href="/me/cart" style="padding-right: 7px">
+            <el-link :underline="false" href="/me/cart" style="padding-right: 7px" v-if="this.user.id!='891b3089-cbf0-4066-9469-9de566a52d10'">
               <i style="font-size: 15px; padding-right: 3px" class="el-icon-shopping-cart-2"></i>购物车
             </el-link>
           </el-dropdown-item>
@@ -46,7 +46,7 @@
             </el-link>
           </el-dropdown-item>
           <el-dropdown-item>
-            <el-link :underline="false" href="/me/setting" style="padding-right: 7px">
+            <el-link :underline="false" href="/me/setting" style="padding-right: 7px" v-if="this.user.id!='891b3089-cbf0-4066-9469-9de566a52d10'">
               <i style="font-size: 15px; padding-right: 3px" class="el-icon-user-solid"></i>个人设置
             </el-link>
           </el-dropdown-item>

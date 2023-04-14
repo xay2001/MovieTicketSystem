@@ -7,7 +7,7 @@
         <el-menu
             class="el-menu-vertical-demo">
           <router-link to="/me/cart">
-            <el-menu-item index="1">
+            <el-menu-item index="1" >
               <i class="el-icon-shopping-cart-1"></i>
               <span style="letter-spacing: 1px" slot="title">购物车</span>
             </el-menu-item>
