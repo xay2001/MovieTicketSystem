@@ -8,7 +8,7 @@
             </div>
             <div style="color: #91949c;font-weight: bolder">
 
-                <p>Username</p>
+                <p>账号</p>
                 <el-input class="login-form-input" v-model="username" placeholder="账 号"></el-input>
                 <el-alert
                         v-if="usernameError"
@@ -17,7 +17,7 @@
                         show-icon>
                 </el-alert>
 
-                <p>Password</p>
+                <p>密码</p>
                 <el-input class="login-form-input" placeholder="密 码" v-model="password" show-password></el-input>
                 <el-alert
                         v-if="passwordError"
@@ -26,7 +26,7 @@
                         show-icon>
                 </el-alert>
 
-                <p>Role</p>
+                <p>角色</p>
                 <el-select style="width: 100%" class="login-form-input" v-model="role" placeholder="请选择你的身份">
                     <el-option label="系统管理员" value="admin"></el-option>
                     <el-option label="工作人员" value="worker"></el-option>
@@ -49,7 +49,7 @@
                         </el-tooltip>
                     </div>
                 </div>
-                <el-button :loading="loading" @click="postLogin" class="login-form-button" type="primary">SIGN IN
+                <el-button :loading="loading" @click="postLogin" class="login-form-button" type="primary">登 录
                 </el-button>
             </div>
             <div class="login-form-footer">
@@ -184,7 +184,6 @@
         font-size: 15px;
         letter-spacing: 2px;
         height: 60px;
-        background: #5a84fd;
         box-shadow: 0 5px 30px rgb(0 66 8.5%);
         margin-top: 35px;
     }

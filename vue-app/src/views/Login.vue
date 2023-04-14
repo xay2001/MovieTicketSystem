@@ -7,9 +7,9 @@
         <div class="login-form-text">爆米花 - 登录</div>
       </div>
       <div style="color: #91949c;font-weight: bolder">
-        <p>Username</p>
+        <p>账号</p>
         <el-input class="login-form-input" v-model="username" placeholder="账 号"></el-input>
-        <p>Password</p>
+        <p>密码</p>
         <el-input class="login-form-input" placeholder="密 码" v-model="password" show-password></el-input>
         <div style="padding-top: 10px">
           <el-checkbox v-model="remember">记住密码</el-checkbox>

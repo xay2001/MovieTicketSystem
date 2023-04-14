@@ -7,17 +7,17 @@
         <div class="login-form-text">爆米花 - 注册</div>
       </div>
       <div style="color: #91949c;font-weight: bolder">
-        <p>Username</p>
+        <p>账号</p>
         <el-input class="login-form-input" v-model="username" placeholder="账 号"></el-input>
-        <p>Password</p>
+        <p>密码</p>
         <el-input class="login-form-input" placeholder="密 码" v-model="password" show-password></el-input>
-        <p>Check Password</p>
+        <p>确认密码</p>
         <el-input class="login-form-input" placeholder="确 认 密 码" v-model="checkPassword"
                   show-password></el-input>
         <div style="padding-top: 10px">
           <el-checkbox v-model="agree">我已同意"爆米花"用户注册协议!</el-checkbox>
         </div>
-        <el-button @click="postLogin" class="login-form-button" type="primary">SIGN UP</el-button></div>
+        <el-button @click="postLogin" class="login-form-button" type="primary">注 册</el-button></div>
       <div class="login-form-footer">
         <el-link href="/login" style="font-weight: bolder;font-size: 16px;color: #91949c;"
                  :underline="false">
