@@ -4,7 +4,7 @@
             <div class="login-form-header">
                 <img style="width: 75px; height: 75px;float: left;padding-right: 40px;" src="../assets/img/logo.png"
                      alt=""/>
-                <div class="login-form-text">小小电影 - 登录</div>
+                <div class="login-form-text">爆米花 - 登录</div>
             </div>
             <div style="color: #91949c;font-weight: bolder">
                 <p>Username</p>

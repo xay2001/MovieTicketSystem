@@ -4,7 +4,7 @@
             <div class="login-form-header">
                 <img style="width: 75px; height: 75px;float: left;padding-right: 30px;" src="../assets/img/logo.png"
                      alt=""/>
-                <div class="login-form-text">小小影院 - 后台管理</div>
+                <div class="login-form-text">爆米花 - 后台管理</div>
             </div>
             <div style="color: #91949c;font-weight: bolder">
 
@@ -55,7 +55,7 @@
             <div class="login-form-footer">
                 <div style="font-weight: bolder;font-size: 16px;color: #91949c;"
                      :underline="false">
-                    Copyright 2021 小小影院 - 后台管理
+                  &copy; Copyright 2023 爆米花购票商城 - 后台管理
                 </div>
             </div>
         </div>
