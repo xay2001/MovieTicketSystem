@@ -27,7 +27,7 @@
                 :span="4">
           <router-link :to=" '/film/info?fid=' + item.id">
             <el-card shadow="hover" style="padding: 0">
-              <img style="width: 100%; height: 300px;padding-bottom: 10px" :src="item.cover"
+              <img style="width: 100%; height: 250px;padding-bottom: 10px" :src="item.cover"
                    alt="">
               <span class="s">{{ item.name }}</span>
             </el-card>
