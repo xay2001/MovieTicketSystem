@@ -14,6 +14,8 @@ import com.movie.api.service.ArrangementService;
 import com.movie.api.service.OrderService;
 import com.movie.api.utils.DataTimeUtil;
 import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -24,6 +26,9 @@ import java.util.UUID;
 @Service
 @CacheConfig(cacheNames = "order")
 public class OrderServiceImpl implements OrderService {
+
+    @Resource
+    JavaMailSenderImpl javaMailSender;
 
     @Resource
     private OrderMapper orderMapper;
@@ -42,7 +47,8 @@ public class OrderServiceImpl implements OrderService {
         List<Integer> seats = arrangementService.getSeatsHaveSelected(cart.getAid());
         String[] split = cart.getSeats().split("号");
         for (String s : split) {
-            if (seats.contains(Integer.parseInt(s))) throw new Exception("影片在购物车中躺了太长时间了，座位已被其他用户预订并支付了");
+            if (seats.contains(Integer.parseInt(s)))
+                throw new Exception("影片在购物车中躺了太长时间了，座位已被其他用户预订并支付了");
         }
         Order order = new Order();
         //生成订单id
@@ -65,6 +71,17 @@ public class OrderServiceImpl implements OrderService {
         Film film = filmMapper.selectById(arrangementService.findById(cart.getAid()).getFid());
         film.setHot(film.getHot() + split.length);
         filmMapper.updateById(film);
+
+        //自动发送邮件
+        //邮件设置1：一个简单的邮件
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setSubject("电影票预订成功");
+        message.setText("电影名称：" + film.getName() + "\n取票手机号：" + order.getPhone() + "\n座位号：" + cart.getSeats() +"\n订单价格："+cart.getPrice() +"\n订单编号："+order.getId());
+        message.setFrom("18610335557@163.com");
+        String toEmail = cart.getPhone() + "@163.com";
+        message.setTo("1602357810@qq.com",toEmail);
+        javaMailSender.send(message);
+
         return order;
     }
 
