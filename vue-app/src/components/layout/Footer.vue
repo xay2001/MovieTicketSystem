@@ -1,7 +1,6 @@
 <template>
   <div class="footer">
-    <p> Copyright 2021 小小影院</p>
-    <p>京公网安备 1101010110110110号 京ICP备123456789号-1</p>
+    <p>&copy; Copyright 2023 爆米花购票商城</p>
   </div>
 </template>
 
