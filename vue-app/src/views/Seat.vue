@@ -60,7 +60,7 @@
                 clearable
             >
             </el-input>
-            <el-button @click="submitSeat" class="add-cart-btn" type="danger" round
+            <el-button @click="submitSeat" class="add-cart-btn" type="danger" round v-if="this.user.id!='891b3089-cbf0-4066-9469-9de566a52d10'"
             >加入购物车
             </el-button>
             <el-button @click="submitCart" class="add-cart-btn" type="primary" round
@@ -113,6 +113,7 @@
 import {FindArrangementById, GetArrangementSeats} from "@/api/film";
 import {CreateCart, DeleteCartById} from "@/api/cart";
 import {CreateOrder, PayForOrder} from "@/api/order";
+import {findById} from "@/api/user";
 
 export default {
   data() {
@@ -129,6 +130,7 @@ export default {
       seats: [],
       userSelectSeats: [],
       selectSeats: [],
+      user: {},
     }
   },
 
@@ -141,6 +143,12 @@ export default {
         this.loadSeats();
       })
     });
+    if (localStorage.getItem("uid") !== null) {
+      findById(localStorage.getItem("uid")).then(res => {
+        this.isLogin = true;
+        this.user = res.data;
+      })
+    }
   },
 
   methods: {
