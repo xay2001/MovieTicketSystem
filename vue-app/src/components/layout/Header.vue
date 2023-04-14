@@ -160,14 +160,14 @@ export default {
 
 .header-links {
   float: left;
-  padding-left: 50px;
+  padding-left: 30px;
   padding-top: 23px;
 }
 
 .header-link {
   letter-spacing: 2px;
   font-size: 17px;
-  padding-right: 40px;
+  padding-right: 30px;
 }
 
 .header-name {
@@ -184,11 +184,12 @@ export default {
   border-radius: 20px;
   height: 40px;
 }
-
 /* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
   font-family: "站酷酷黑 Regular";font-weight: 400;src: url("//at.alicdn.com/wf/webfont/8MprykaqSrQG/nSohU0Ux9Mcm.woff2") format("woff2"),
 url("//at.alicdn.com/wf/webfont/8MprykaqSrQG/pNqsibkXVo1T.woff") format("woff");
   font-display: swap;
 }
+
+
 </style>
