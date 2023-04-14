@@ -1,0 +1,2 @@
+# MovieTicketSystem
+基于SpringBoot的前后端分离的电影购票系统
