@@ -17,8 +17,7 @@
         <div style="padding-top: 10px">
           <el-checkbox v-model="agree">我已同意"爆米花"用户注册协议!</el-checkbox>
         </div>
-        <el-button @click="postLogin" class="login-form-button" type="primary">SIGN UP</el-button>
-      </div>
+        <el-button @click="postLogin" class="login-form-button" type="primary">SIGN UP</el-button></div>
       <div class="login-form-footer">
         <el-link href="/login" style="font-weight: bolder;font-size: 16px;color: #91949c;"
                  :underline="false">
@@ -123,7 +122,6 @@ export default {
   font-size: 15px;
   letter-spacing: 2px;
   height: 60px;
-  background: #5a84fd;
   box-shadow: 0 5px 30px rgb(0 66 8.5%);
   margin-top: 35px;
 }
