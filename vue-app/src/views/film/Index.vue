@@ -134,7 +134,8 @@ export default {
   position: relative;
   width: 100%;
   height: 380px;
-  background: #5a84fd;
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
   margin-top: 12px;
 }
 
