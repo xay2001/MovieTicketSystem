@@ -3,6 +3,7 @@
     <h3 style="letter-spacing: 1px;font-weight: 400;padding-bottom: 20px">我的订单</h3>
 
     <div v-loading="loading">
+
       <el-card v-for="(item, index) in orderList" :key="index" class="box-card">
         <div>
           <img class="item-film-img" alt="" :src="item.film.cover"/>
@@ -22,18 +23,66 @@
           <el-tooltip class="item" effect="dark" content="请联系工作人员查询您的订单" placement="top">
             <div v-if="item.order.status === 3" style="color: #E6A23C" class="o1">订单异常</div>
           </el-tooltip>
-          <div v-if="item.order.status === 2" style="color: #67C23A" class="o1">支付成功</div>
+          <div v-if="item.order.status === 2" style="color: #67C23A" class="o1">
+            支付成功
+            <div style="float: right;padding-left: 20px">
+              <el-button type="primary" size="small" @click="dialogVisible = true">查看</el-button>
+            </div>
+          </div>
           <div v-if="item.order.status === 1" style="color: #F56C6C" class="o1">订单超时</div>
           <div class="o2">￥{{ item.order.price }}</div>
         </div>
       </el-card>
     </div>
+    <!--  添加显示票据  -->
+    <el-dialog
+        title="电影票"
+        :visible.sync="dialogVisible"
+        width="30%"
+        :before-close="handleClose">
+      <div class="cardWrap">
+        <div class="card cardLeft">
+          <h1>爆米花 <span>影院</span></h1>
+          <div class="title">
+            <h2>保你平安</h2>
+            <span>电影</span>
+          </div>
+          <div class="name">
+            <h2>18610335557</h2>
+            <span>手机号</span>
+          </div>
+          <div class="seat">
+            <h2>30号</h2>
+            <span>座位号</span>
+          </div>
+          <div class="time">
+            <h2>12:00</h2>
+            <span>时间</span>
+          </div>
+
+        </div>
+        <div class="card cardRight">
+          <div class="eye"></div>
+          <div class="number">
+            <h3>30号</h3>
+            <span>座位号</span>
+          </div>
+          <div class="barcode"></div>
+        </div>
+
+      </div>
+      <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+  </span>
+    </el-dialog>
+
 
     <el-dialog
         title="扫码支付"
         :show-close="false"
         width="30%"
-        :visible.sync="centerDialogVisible"
+        :visible.sync="TicketcenterDialogVisible"
     >
       <div>
         <img class="c-img" src="../../assets/img/c.jpeg" alt="">
@@ -49,6 +98,7 @@
 <script>
 import {FindOrderByUser, PayForOrder} from "@/api/order";
 
+
 export default {
   name: "Order",
 
@@ -58,6 +108,7 @@ export default {
       loading: false,
       orderList: [],
       payOrderId: '',
+      dialogVisible:false
     }
   },
 
@@ -111,6 +162,13 @@ export default {
         }
       })
     },
+    handleClose(done) {
+      this.$confirm('确认关闭？')
+          .then(_ => {
+            done();
+          })
+          .catch(_ => {});
+    }
 
   },
 
@@ -118,6 +176,7 @@ export default {
 </script>
 
 <style scoped>
+@import "../../assets/css/ticket.css";
 
 .box-card {
   margin-bottom: 10px;
