@@ -73,6 +73,10 @@ const routes = [
                 component: () => import("@/views/activity/Activity")
             },
             {
+                path: '/leaving',
+                component: () => import("@/views/leaving/Leaving")
+            },
+            {
                 path: '/setting',
                 component: () => import("@/views/Setting")
             },

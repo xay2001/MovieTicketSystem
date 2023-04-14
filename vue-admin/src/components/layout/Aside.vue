@@ -78,6 +78,13 @@
             </el-menu-item-group>
           </el-submenu>
 
+          <router-link to="/api">
+            <el-menu-item index="4">
+              <i class="el-icon-document"></i>
+              <span slot="title">Api接口</span>
+            </el-menu-item>
+          </router-link>
+
           <router-link to="/activity">
             <el-menu-item index="5">
               <i class="el-icon-document"></i>
@@ -85,12 +92,13 @@
             </el-menu-item>
           </router-link>
 
-          <router-link to="/api">
-            <el-menu-item index="4">
-              <i class="el-icon-document"></i>
-              <span slot="title">Api接口</span>
+          <router-link to="/leaving">
+            <el-menu-item index="7">
+              <i class="el-icon-s-promotion"></i>
+              <span slot="title">影院留言</span>
             </el-menu-item>
           </router-link>
+
 
           <router-link v-if="role==='worker'" to="/setting">
             <el-menu-item index="7">
