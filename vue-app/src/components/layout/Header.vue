@@ -3,7 +3,7 @@
     <div style="height: 70px;width: 100%">
       <div class="header-logo">
         <img style="width: 50px; height: 50px;float: left" src="../../assets/img/logo.png" alt=""/>
-        <div class="header-logo-text">小小影院</div>
+        <div class="header-logo-text">爆米花</div>
       </div>
       <div class="header-links">
         <el-link href="/" class="header-link" :underline="false">首页</el-link>
@@ -143,11 +143,12 @@ export default {
 }
 
 .header-logo-text {
-  font-size: 30px;
-  padding-top: 3px;
-  font-weight: bolder;
-  padding-left: 15px;
+  font-size: 45px;
+  padding-top: 1px;
+  padding-left: 5px;
   float: left;
+  font-family: "站酷酷黑 Regular";
+  color: #333333;
 }
 
 .header-search {
@@ -182,5 +183,12 @@ export default {
 >>> .el-input__inner {
   border-radius: 20px;
   height: 40px;
+}
+
+/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: "站酷酷黑 Regular";font-weight: 400;src: url("//at.alicdn.com/wf/webfont/8MprykaqSrQG/nSohU0Ux9Mcm.woff2") format("woff2"),
+url("//at.alicdn.com/wf/webfont/8MprykaqSrQG/pNqsibkXVo1T.woff") format("woff");
+  font-display: swap;
 }
 </style>
