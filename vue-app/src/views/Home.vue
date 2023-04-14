@@ -1,11 +1,11 @@
 <template>
   <div class="app">
 
-    <el-carousel height="500px" indicator-position="outside">
+    <el-carousel height="330px" indicator-position="outside" type="card">
       <el-carousel-item v-for="(item, index) in posterList" :key="index">
         <img alt=""
              :src="item.url"
-             style="width: 100%;height: 500px">
+             style="width: 100%">
       </el-carousel-item>
     </el-carousel>
 
