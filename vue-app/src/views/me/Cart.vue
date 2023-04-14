@@ -145,6 +145,7 @@ export default {
             this.selectList[i].cart.status = 2
             this.centerDialogVisible = true
             this.i = i
+            console.log(this.selectList[i].cart)
           }
         }
       }).catch(() => {
@@ -152,6 +153,7 @@ export default {
           if (this.selectList[i].checked) {
             this.selectList[i].cart.status = 0
             CreateOrder(this.selectList[i].cart).then(res => {
+              console.log("进入该方法")
               if (res.success) {
                 DeleteCartById(this.selectList[i].cart.id)
                 this.$message({

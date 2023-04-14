@@ -63,6 +63,9 @@
             <el-button @click="submitSeat" class="add-cart-btn" type="danger" round
             >加入购物车
             </el-button>
+            <el-button @click="submitCart" class="add-cart-btn" type="primary" round
+            >立即付款
+            </el-button>
           </div>
         </div>
       </div>
@@ -108,7 +111,8 @@
 
 <script>
 import {FindArrangementById, GetArrangementSeats} from "@/api/film";
-import {CreateCart} from "@/api/cart";
+import {CreateCart, DeleteCartById} from "@/api/cart";
+import {CreateOrder, PayForOrder} from "@/api/order";
 
 export default {
   data() {
@@ -207,6 +211,44 @@ export default {
 
       }
     },
+    submitCart() {
+      if (this.checkPhoneAndSeats()) {
+        this.$confirm('请您仔细确认订单金额为' + this.cart.price + '元, 是否继续?', '提示', {
+          confirmButtonText: '确认支付',
+          cancelButtonText: '取消支付',
+          type: 'success',
+          center: true
+        }).then(() => {
+          for (let i = 0; i < this.userSelectSeats.length; i++) {
+            this.cart.seats += this.userSelectSeats[i] + '号'
+          }
+          //console.log(this.cart)
+          this.cart.status = 2
+          //this.centerDialogVisible = true
+          //this.i = i
+          CreateOrder(this.cart).then(res => {
+            if (res.success) {
+              this.$message({
+                type: 'success',
+                message: '恭喜你支付成功!'
+              });
+            }
+          })
+          self.location="Home.vue";
+        }).catch(() => {
+          CreateOrder(this.cart).then(res => {
+            if (res.success) {
+              DeleteCartById(this.selectList[i].cart.id)
+              this.$message({
+                type: 'warning',
+                message: '用户已取消支付, 请您前往我的订单进行支付'
+              });
+              this.loadCarts()
+            }
+          })
+        });
+      }
+    },
 
   },
 };
@@ -259,9 +301,7 @@ export default {
 }
 
 .add-cart-btn {
-  width: 100%;
-  height: 60px;
-  border-radius: 50px;
+  width: 117px;
 }
 
 .item {
