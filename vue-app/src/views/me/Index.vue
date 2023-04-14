@@ -7,9 +7,9 @@
         <el-menu
             class="el-menu-vertical-demo">
           <router-link to="/me/cart">
-            <el-menu-item index="1" >
+            <el-menu-item index="1" v-if="this.user.id!='891b3089-cbf0-4066-9469-9de566a52d10'">
               <i class="el-icon-shopping-cart-1"></i>
-              <span style="letter-spacing: 1px" slot="title">购物车</span>
+              <span style="letter-spacing: 1px" slot="title" >购物车</span>
             </el-menu-item>
           </router-link>
           <router-link to="/me/order">
@@ -19,7 +19,7 @@
             </el-menu-item>
           </router-link>
           <router-link to="/me/setting">
-            <el-menu-item index="3">
+            <el-menu-item index="3" v-if="this.user.id!='891b3089-cbf0-4066-9469-9de566a52d10'">
               <i class="el-icon-setting"></i>
               <span style="letter-spacing: 1px" slot="title">基本设置</span>
             </el-menu-item>
@@ -36,6 +36,39 @@
 </template>
 
 <script>
+import {findById} from "@/api/user";
+import {SearchFilm} from "@/api/film";
+export default {
+  name: "Header",
+  data() {
+    return {
+      isLogin: false,
+      searchList: [],
+      state: '',
+      timeout: null,
+      user: {},
+    }
+  },
+
+  mounted() {
+    if (localStorage.getItem("uid") !== null) {
+      findById(localStorage.getItem("uid")).then(res => {
+        this.isLogin = true;
+        this.user = res.data;
+      })
+    }
+  },
+
+  methods: {
+
+    handleSelect(item) {
+      this.$router.push('/film/info?fid=' + item.id)
+    },
+
+
+  },
+
+}
 </script>
 
 <style scoped>
