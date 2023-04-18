@@ -9,11 +9,15 @@
 
 ## 2. 演示视频
 
+[基于SpringBoot和Redis的电影订票系统的演示视频-毕业设计答辩展示](https://www.bilibili.com/video/BV1Av4y1n7gC/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=8cdbc354c506ada0f88ae56dc7594e0a)
+
 ## 3. 软件架构
 
 前后端分离项目
 
 ##  4. 数据库
+
+movie.sql
 
 ## 5. 关于
 
